@@ -10,6 +10,14 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// pool.connect()
+//   .then(() => console.log("Database connected successfully 🚀"))
+//   .catch((err) => console.error("Database connection error:", err));
+
+pool.query("SELECT NOW()")
+  .then(() => console.log("Database connected successfully 🚀"))
+  .catch((err) => console.error("Database connection error:", err));
+
 app.get("/", (req, res) => {
   res.json({
     message: "Todo API is running successfully 🚀",
